@@ -1,0 +1,5 @@
+[required]
+other = "this {{.Field}} is required"
+
+[bool]
+other = "this {{.Field}} must be true or false"
