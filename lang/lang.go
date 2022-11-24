@@ -14,7 +14,7 @@ type Lang struct {
 func New() Lang {
 	bundle := i18n.NewBundle(language.Indonesian)
 	bundle.RegisterUnmarshalFunc("toml", toml.Unmarshal)
-	bundle.LoadMessageFile("github.com/jabardigitalservice/utilities-go/lang/toml/validation.en.toml")
+	bundle.LoadMessageFile("toml/validation.en.toml")
 	localizer := i18n.NewLocalizer(bundle, "en")
 
 	return Lang{
