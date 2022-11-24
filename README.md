@@ -1,17 +1,17 @@
 # Utilities Go
 
-This is Repository for utils for golang 
+This is Repository for utility for Golang 
 
-## how to install
+## How to install
 
 ```bash
 $ go get -u github.com/jabardigitalservice/utilities-go
 ```
 
-## utilities an available 
-- :white_check_mark: lang
-- :white_check_mark: validator
+## Utilities aAvailable
+:white_check_mark: lang
+<br/> :white_check_mark: validator
 
 ## Contributor
 
-Anyone can become a contributor to complete the utilities in this repository
+Anyone can become a contributor to complete the utilities in this repository :smile:
