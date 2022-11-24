@@ -12,11 +12,10 @@ type Lang struct {
 }
 
 func New(path string, locale string) Lang {
-	bundle := i18n.NewBundle(language.Indonesian)
+	bundle := i18n.NewBundle(language.English)
 	bundle.RegisterUnmarshalFunc("toml", toml.Unmarshal)
 	bundle.LoadMessageFile(path)
 	localizer := i18n.NewLocalizer(bundle, locale)
-
 	return Lang{
 		localizer: localizer,
 		bundle:    bundle,
