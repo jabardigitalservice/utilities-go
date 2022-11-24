@@ -30,14 +30,6 @@ func (l Lang) GetMessage(ID string, TemplateData map[string]interface{}) (string
 	})
 }
 
-func (l Lang) LoadMessageFile(path string) (*i18n.MessageFile, error) {
-	return l.bundle.LoadMessageFile(path)
-}
-
-func (l Lang) NewLocalizer(lang string) *i18n.Localizer {
-	return i18n.NewLocalizer(l.bundle, lang)
-}
-
 func (l Lang) GetMessageByLocalize(localizer *i18n.Localizer, ID string, TemplateData map[string]interface{}) (string, error) {
 	return localizer.Localize(&i18n.LocalizeConfig{
 		DefaultMessage: &i18n.Message{ID: ID},
