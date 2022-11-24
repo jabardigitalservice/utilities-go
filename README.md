@@ -9,8 +9,8 @@ $ go get -u github.com/jabardigitalservice/utilities-go
 ```
 
 ## utilities an available 
-[] lang
-[] validator
+- :white_check_mark: lang
+- :white_check_mark: validator
 
 ## Contributor
 
