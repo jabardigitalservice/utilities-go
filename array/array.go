@@ -22,3 +22,7 @@ func InArray(needle interface{}, haystack interface{}) (exists bool, index int) 
 
 	return
 }
+
+func RemoveIndex(s []string, index int) []string {
+	return append(s[:index], s[index+1:]...)
+}
