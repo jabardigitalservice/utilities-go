@@ -6,16 +6,18 @@ import (
 )
 
 // nolint: staticcheck
-func Mapping(ctx context.Context, maps map[string]interface{}, h http.HandlerFunc) http.HandlerFunc {
-	fn := func(w http.ResponseWriter, r *http.Request) {
+func Mapping(maps map[string]interface{}) func(http.Handler) http.Handler {
 
-		for ctxKey, headerKey := range maps {
-			ctxVal := r.Header.Get(headerKey.(string))
-			ctx = context.WithValue(ctx, ctxKey, ctxVal)
-		}
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			ctx := r.Context()
 
-		h.ServeHTTP(w, r.WithContext(ctx))
+			for ctxKey, headerKey := range maps {
+				ctxVal := r.Header.Get(headerKey.(string))
+				ctx = context.WithValue(ctx, ctxKey, ctxVal)
+			}
+
+			next.ServeHTTP(w, r.WithContext(ctx))
+		})
 	}
-
-	return http.HandlerFunc(fn)
 }
